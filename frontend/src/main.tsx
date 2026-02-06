@@ -5,18 +5,15 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { URLS } from "./config/navigation";
 
-import NotFoundPage from "../pages/General/NotFoundPage"
+import HomePage from "../pages/General/HomePage";
+import NotFoundPage from "../pages/General/NotFoundPage";
 
 const router = createBrowserRouter([
     {
         children: [
-            // Public Routes - for unauthenticated users
-
             {
                 path: URLS.homePage,
-                element: (
-                    <>hello</>
-                ),
+                element: <HomePage />,
             },
 
             // 404
