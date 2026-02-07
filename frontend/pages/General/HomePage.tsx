@@ -1,5 +1,6 @@
 import Landing from "../../components/Landing";
 import AboutMe from "../../components/AboutMe";
+import Education from "../../components/Education";
 import GradualBlur from "../../components/GradualBlur/GradualBlur";
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
         <>
             <Landing />
             <AboutMe />
+            <Education />
             <GradualBlur
                 target="page"
                 position="bottom"
