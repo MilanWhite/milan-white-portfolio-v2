@@ -22,7 +22,7 @@ function LandingWallpaper() {
         <div className="absolute inset-0 h-[100dvh] pointer-events-none">
             <Beams
                 backgroundColor={COLORS.backgroundColor}
-                accentColor="#7cb2ff"
+                accentColor={COLORS.beamsBlue}
                 beamWidth={3}
                 beamHeight={30}
                 beamNumber={20}
