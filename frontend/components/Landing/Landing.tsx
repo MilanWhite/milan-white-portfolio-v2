@@ -3,16 +3,18 @@ import Beams from "../../components/Beams/Beams";
 import NavBar from "../NavBar";
 import Hero from "./Hero";
 
+import { COLORS } from "../../src/config/theme";
+
 export default function Landing() {
-  return (
-    <div className="relative isolate h-[100dvh] overflow-hidden">
-      <LandingWallpaper />
-      <div className="relative flex h-full flex-col">
-        <NavBar />
-        <Hero />
-      </div>
-    </div>
-  );
+    return (
+        <div className="relative isolate h-[100dvh] overflow-hidden">
+            <LandingWallpaper />
+            <div className="relative flex h-full flex-col">
+                <NavBar />
+                <Hero />
+            </div>
+        </div>
+    );
 }
 
 function LandingWallpaper() {
@@ -22,7 +24,7 @@ function LandingWallpaper() {
                 beamWidth={3}
                 beamHeight={30}
                 beamNumber={20}
-                lightColor="#85b8ff"
+                lightColor={COLORS.mainBlue}
                 // lightColor="#7cb2ff"
                 speed={4}
                 noiseIntensity={2}
