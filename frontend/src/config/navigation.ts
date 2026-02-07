@@ -1,3 +1,10 @@
 export const URLS = {
-    homePage: "/"
+    homePage: "/",
+
+    aboutMe: "#",
+    education: "#",
+    experience: "#",
+    projects: "#",
+    contact: "#",
+    resume: "#",
 }
