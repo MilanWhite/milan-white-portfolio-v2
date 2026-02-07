@@ -82,7 +82,7 @@ export default function Education() {
                     </div>
                     <div className="relative order-1 mx-auto block w-[clamp(240px,80vw,400px)] shrink-0 md:order-2 md:mx-0 md:w-[400px]">
                         <img
-                            src="../../src/assets/uoft5.webp"
+                            src="../../src/assets/education.webp"
                             alt="University of Toronto campus"
                             loading="lazy"
                             decoding="async"
