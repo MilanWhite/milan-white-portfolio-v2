@@ -9,6 +9,8 @@ export default function AboutMe() {
                         <img
                             src="../../src/assets/about_me.png"
                             alt="Portrait of Milan White"
+                            loading="lazy"
+                            decoding="async"
                             className="h-[clamp(240px,80vw,400px)] w-[clamp(240px,80vw,400px)] object-cover shadow-[0_16px_40px_rgba(0,0,0,0.45)] md:h-[400px] md:w-[400px]"
                         />
                     </div>

@@ -1,5 +1,6 @@
 import { COLORS } from "../../src/config/theme";
 import Badge from "../Badge";
+import GrainBackground from "../GrainBackground";
 
 export default function Education() {
     return (
@@ -7,9 +8,10 @@ export default function Education() {
             style={{
                 backgroundColor: COLORS.secondaryBlue,
             }}
-            className="relative flex w-full justify-center px-4 sm:px-6"
+            className="relative flex w-full justify-center overflow-hidden px-4 sm:px-6"
         >
-            <div className="relative w-full max-w-[1200px] py-[clamp(2.5rem,6vw,5rem)]">
+            <GrainBackground />
+            <div className="relative z-10 w-full max-w-[1200px] py-[clamp(2.5rem,6vw,5rem)]">
                 <div className="relative flex flex-col gap-[clamp(1.75rem,4vw,3rem)] p-[clamp(1.25rem,3vw,2.5rem)] md:flex-row md:items-center">
                     <div className="order-2 flex min-w-0 flex-1 flex-col gap-3 text-white/80 md:order-1 md:pr-[clamp(0.5rem,2vw,1.5rem)]">
                         <h2 className="text-[clamp(20pt,8vw,34pt)] font-semibold tracking-tight text-white">
@@ -63,11 +65,13 @@ export default function Education() {
                             </span>
                         </div>
                     </div>
-                    <div className="relative order-1 mx-auto hidden w-[clamp(240px,80vw,400px)] shrink-0 md:order-2 md:mx-0 md:block md:w-[400px]">
+                    <div className="relative order-1 mx-auto block w-[clamp(240px,80vw,400px)] shrink-0 md:order-2 md:mx-0 md:w-[400px]">
                         <img
-                            src="../../src/assets/uoft3.png"
+                            src="../../src/assets/uoft5.webp"
                             alt="University of Toronto campus"
-                            className="h-[clamp(240px,80vw,400px)] w-[clamp(240px,80vw,400px)] object-contain md:h-[400px] md:w-[400px]"
+                            loading="lazy"
+                            decoding="async"
+                            className="h-[clamp(240px,80vw,400px)] w-[clamp(240px,80vw,400px)] object-cover md:h-[400px] md:w-[400px]"
                         />
                     </div>
                 </div>

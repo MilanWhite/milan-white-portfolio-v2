@@ -15,6 +15,7 @@ export default function Hero() {
                     <img
                         src="../../src/assets/hero_image_cropped.jpg"
                         alt="Portrait of Milan White"
+                        fetchPriority="high"
                         className="relative z-0 h-[clamp(220px,60vw,400px)] w-[clamp(220px,60vw,400px)] object-cover shadow-[0_20px_50px_rgba(0,0,0,0.4)] [@media(min-width:600px)_and_(max-height:800px)]:hidden [@media(max-width:599px)_and_(max-height:550px)]:hidden"
                     />
                     <span className="pointer-events-none absolute top-full mt-[clamp(0.75rem,2.5vw,1rem)] -right-[clamp(0.75rem,10vw,7.25rem)] w-[100vw] text-right text-white font-semibold text-[clamp(12pt,2.6vw,16pt)] [@media(min-width:600px)_and_(max-height:800px)]:static [@media(min-width:600px)_and_(max-height:800px)]:mt-0 [@media(min-width:600px)_and_(max-height:800px)]:w-auto [@media(min-width:600px)_and_(max-height:800px)]:text-center [@media(max-width:599px)_and_(max-height:550px)]:static [@media(max-width:599px)_and_(max-height:550px)]:mt-0 [@media(max-width:599px)_and_(max-height:550px)]:w-auto [@media(max-width:599px)_and_(max-height:550px)]:text-center">
