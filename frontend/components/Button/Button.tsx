@@ -1,4 +1,3 @@
-
 import type { ButtonHTMLAttributes, CSSProperties } from "react";
 
 type SizeValue = number | string;
@@ -9,6 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     width?: SizeValue;
     textColor?: string;
     backgroundColor?: string;
+    href?: string;
 }
 
 export default function Button({
@@ -17,6 +17,7 @@ export default function Button({
     width,
     textColor = "#000",
     backgroundColor = "#fff",
+    href = "javascript:void(0)", // do nothing pretty much always unless specified
     className,
     style,
     ...rest
@@ -33,14 +34,16 @@ export default function Button({
     const paddingY = height === undefined ? "py-2" : "";
 
     return (
-        <button
-            type="button"
-            className={`inline-flex items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:cursor-not-allowed disabled:opacity-60 ${paddingX} ${paddingY} ${className ?? ""}`}
-            style={resolvedStyle}
-            {...rest}
-        >
-            {text}
-        </button>
+        <a href={href}>
+            <button
+                type="button"
+                className={`inline-flex cursor-pointer items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:cursor-not-allowed disabled:opacity-60 ${paddingX} ${paddingY} ${className ?? ""}`}
+                style={resolvedStyle}
+                {...rest}
+            >
+                {text}
+            </button>
+        </a>
     );
 }
 
