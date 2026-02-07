@@ -185,7 +185,7 @@ export default function Experience() {
         >
             <div className="relative w-full max-w-[1200px] py-[clamp(2.5rem,6vw,5rem)]">
                 <div className="relative flex flex-col gap-[clamp(1.75rem,4vw,3rem)] p-[clamp(1.25rem,3vw,2.5rem)]">
-                    <div className="flex flex-col gap-2 text-white/85">
+                    <div className="flex flex-col items-center gap-2 text-center text-white/85">
                         <h2 className="text-[clamp(20pt,8vw,34pt)] font-semibold tracking-tight text-white">
                             Experience
                         </h2>
