@@ -1,3 +1,4 @@
+import { URLS } from "../../src/config/navigation";
 import { COLORS } from "../../src/config/theme";
 import Badge from "../Badge";
 import GrainBackground from "../GrainBackground";
@@ -57,11 +58,25 @@ export default function Education() {
                             </li>
                         </ul>
                         <div className="flex flex-col gap-1 text-[clamp(10pt,2vw,12.5pt)] text-white/70">
-                            <span className="underline">
-                                UofT Computer Science: Program Info
+                            <span>
+                                UofT Computer Science:{" "}
+                                <a
+                                    href={URLS.utscCS}
+                                    className="underline"
+                                    target="_blank"
+                                >
+                                    Program Info
+                                </a>
                             </span>
-                            <span className="underline">
-                                UofT Statistics: Program Info
+                            <span className="">
+                                UofT Statistics:{" "}
+                                <a
+                                    href={URLS.utscStats}
+                                    className="underline"
+                                    target="_blank"
+                                >
+                                    Program Info
+                                </a>
                             </span>
                         </div>
                     </div>
