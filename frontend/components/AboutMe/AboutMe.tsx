@@ -1,3 +1,5 @@
+import Badge from "../Badge";
+
 export default function AboutMe() {
     return (
         <section className="relative flex w-full justify-center px-4 sm:px-6">
@@ -14,9 +16,25 @@ export default function AboutMe() {
                         <h2 className="text-[clamp(20pt,8vw,34pt)] font-semibold tracking-tight text-white">
                             About Me
                         </h2>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge
+                                text="CS & Stats"
+                                className="self-start"
+                            />
+                            <Badge
+                                text="UofT"
+                                className="self-start"
+                            />
+                            <Badge
+                                text="President of TechFounders"
+                                className="self-start"
+                            />
+                        </div>
+
                         <p className="max-w-[620px] text-[clamp(11pt,2.2vw,14pt)] leading-relaxed text-white/80">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am a Computer Science Specialist and Statistics
-                            Major at the{" "}
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
+                            a Computer Science Specialist and Statistics Major
+                            at the{" "}
                             <a
                                 href="https://www.utoronto.ca"
                                 className="underline"
@@ -28,14 +46,16 @@ export default function AboutMe() {
                             simplify complex operations into efficient, scalable
                             solutions.
                             <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With experience in React, TypeScript, Flask, and
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With
+                            experience in React, TypeScript, Flask, and
                             PostgreSQL, I build production-ready applications
                             that automate workflows and handle real business
                             data, not just academic projects.
                             <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am driven to create software that operates
-                            with clarity and precision—quietly improving
-                            reliability and productivity.
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
+                            driven to create software that operates with clarity
+                            and precision—quietly improving reliability and
+                            productivity.
                         </p>
                     </div>
                 </div>
