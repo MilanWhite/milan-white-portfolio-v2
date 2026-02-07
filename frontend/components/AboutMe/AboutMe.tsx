@@ -12,7 +12,7 @@ export default function AboutMe() {
                             className="h-[clamp(240px,80vw,400px)] w-[clamp(240px,80vw,400px)] object-cover shadow-[0_16px_40px_rgba(0,0,0,0.45)] md:h-[400px] md:w-[400px]"
                         />
                     </div>
-                    <div className="flex min-w-0 flex-1 flex-col gap-4 text-white/85 md:pl-[clamp(0.5rem,2vw,1.5rem)]">
+                    <div className="flex min-w-0 flex-1 flex-col gap-3 text-white/85 md:pl-[clamp(0.5rem,2vw,1.5rem)]">
                         <h2 className="text-[clamp(20pt,8vw,34pt)] font-semibold tracking-tight text-white">
                             About Me
                         </h2>
