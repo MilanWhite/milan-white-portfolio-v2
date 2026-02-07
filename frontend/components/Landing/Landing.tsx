@@ -24,7 +24,7 @@ function LandingWallpaper() {
                 beamNumber={20}
                 lightColor="#85b8ff"
                 // lightColor="#7cb2ff"
-                speed={3}
+                speed={4}
                 noiseIntensity={2}
                 scale={0.2}
                 rotation={30}
