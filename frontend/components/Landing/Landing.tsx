@@ -21,11 +21,11 @@ function LandingWallpaper() {
     return (
         <div className="absolute inset-0 h-[100dvh] pointer-events-none">
             <Beams
+                backgroundColor={COLORS.backgroundColor}
+                accentColor="#7cb2ff"
                 beamWidth={3}
                 beamHeight={30}
                 beamNumber={20}
-                lightColor={COLORS.mainBlue}
-                // lightColor="#7cb2ff"
                 speed={4}
                 noiseIntensity={2}
                 scale={0.2}

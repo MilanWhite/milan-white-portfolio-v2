@@ -7,6 +7,7 @@ import { URLS } from "./config/navigation";
 
 import HomePage from "../pages/General/HomePage";
 import NotFoundPage from "../pages/General/NotFoundPage";
+import { COLORS } from "./config/theme";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <div
+            style={{
+                backgroundColor: COLORS.backgroundColor,
+                minHeight: "100vh",
+            }}
+        >
+            <RouterProvider router={router} />
+        </div>
     </StrictMode>,
 );
