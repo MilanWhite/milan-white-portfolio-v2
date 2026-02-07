@@ -1,6 +1,7 @@
 export const COLORS = {
     mainBlue: "#85b8ff",
-    secondaryBlue: "#092a58",
+    // secondaryBlue: "#092a58",
+    secondaryBlue: "#000f25",
 
 
     beamsBlue: "#85b8ff",
