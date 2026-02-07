@@ -2,3 +2,7 @@
 @source "../components/**/*.{js,ts,jsx,tsx}";
 @source "../pages/**/*.{js,ts,jsx,tsx}";
 @source "../node_modules/liquid-glass-react/dist/**/*.{js,jsx,ts,tsx}";
+
+html {
+  scroll-behavior: smooth;
+}

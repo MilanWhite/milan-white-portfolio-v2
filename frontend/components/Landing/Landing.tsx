@@ -18,23 +18,26 @@ export default function Landing() {
     );
 }
 
-const useInView = (ref: RefObject<HTMLElement | null>, rootMargin = "0px") => {
-    const [isVisible, setIsVisible] = useState(true);
+const useInView = (
+  ref: RefObject<HTMLElement | null>,
+  rootMargin = "0px",
+) => {
+  const [isVisible, setIsVisible] = useState(true);
 
-    useEffect(() => {
-        const element = ref.current;
-        if (!element || typeof IntersectionObserver === "undefined") return;
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || typeof IntersectionObserver === "undefined") return;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => setIsVisible(entry.isIntersecting),
-            { rootMargin, threshold: 0.1 },
-        );
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin, threshold: 0.1 },
+    );
 
-        observer.observe(element);
-        return () => observer.disconnect();
-    }, [ref, rootMargin]);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [ref, rootMargin]);
 
-    return isVisible;
+  return isVisible;
 };
 
 function LandingWallpaper() {
