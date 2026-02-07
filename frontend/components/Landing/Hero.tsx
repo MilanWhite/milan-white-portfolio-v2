@@ -4,7 +4,7 @@ import Button from "../Button";
 export default function Hero() {
     return (
         <section className="flex h-full w-full items-center justify-center px-4 sm:px-6">
-            <div className="relative -top-[10dvh] flex w-full max-w-[680px] items-center justify-center py-[clamp(3rem,8vw,6rem)] [@media(min-width:600px)_and_(max-height:800px)]:top-0 [@media(max-width:599px)_and_(max-height:550px)]:top-0">
+            <div className="relative -top-[var(--landing-hero-offset)] flex w-full max-w-[680px] items-center justify-center py-[clamp(3rem,8vw,6rem)] [@media(min-width:600px)_and_(max-height:800px)]:top-0 [@media(max-width:599px)_and_(max-height:550px)]:top-0">
                 <div className="relative flex items-center justify-center [@media(min-width:600px)_and_(max-height:800px)]:flex-col [@media(min-width:600px)_and_(max-height:800px)]:items-center [@media(min-width:600px)_and_(max-height:800px)]:gap-[clamp(0.4rem,1.8vw,0.9rem)] [@media(max-width:599px)_and_(max-height:550px)]:flex-col [@media(max-width:599px)_and_(max-height:550px)]:items-center [@media(max-width:599px)_and_(max-height:550px)]:gap-[clamp(0.4rem,1.8vw,0.9rem)]">
                     <span className="pointer-events-none absolute -left-[clamp(0.75rem,7.5vw,7rem)] -top-[clamp(0.75rem,14vw,5.5rem)] w-full font-semibold text-[clamp(12pt,2.6vw,16pt)] text-white [@media(min-width:600px)_and_(max-height:800px)]:static [@media(min-width:600px)_and_(max-height:800px)]:w-auto [@media(min-width:600px)_and_(max-height:800px)]:text-center [@media(max-width:599px)_and_(max-height:550px)]:static [@media(max-width:599px)_and_(max-height:550px)]:w-auto [@media(max-width:599px)_and_(max-height:550px)]:text-center">
                         Hi, my name is

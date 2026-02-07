@@ -6,3 +6,15 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --landing-vh: 100vh;
+  --landing-hero-offset: 10vh;
+}
+
+@supports (height: 100svh) {
+  :root {
+    --landing-vh: 100svh;
+    --landing-hero-offset: 10svh;
+  }
+}
