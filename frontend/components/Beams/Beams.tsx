@@ -4,13 +4,14 @@ import {
     useEffect,
     useRef,
     useMemo,
+    useState,
     type FC,
     type ReactNode,
 } from "react";
 
 import * as THREE from "three";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
 import { degToRad } from "three/src/math/MathUtils.js";
 
@@ -89,11 +90,64 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
     return mat;
 }
 
-const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
-    <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative">
-        {children}
-    </Canvas>
-);
+const useResponsiveDpr = () => {
+    const [dpr, setDpr] = useState<number | [number, number]>([1, 2]);
+
+    useEffect(() => {
+        const calc = () => {
+            if (typeof window === "undefined") return;
+            const width = window.innerWidth;
+            const deviceDpr = window.devicePixelRatio || 1;
+            if (width <= 640) {
+                setDpr(Math.min(1.25, deviceDpr));
+            } else if (width <= 900) {
+                setDpr(Math.min(1.5, deviceDpr));
+            } else {
+                setDpr([1, 2]);
+            }
+        };
+
+        calc();
+        window.addEventListener("resize", calc);
+        return () => window.removeEventListener("resize", calc);
+    }, []);
+
+    return dpr;
+};
+
+const RenderLoop: FC<{ active: boolean; fps: number }> = ({ active, fps }) => {
+    const invalidate = useThree((state) => state.invalidate);
+
+    useEffect(() => {
+        if (!active || fps <= 0) return;
+        invalidate();
+        const interval = window.setInterval(
+            () => invalidate(),
+            1000 / fps,
+        );
+        return () => window.clearInterval(interval);
+    }, [active, fps, invalidate]);
+
+    return null;
+};
+
+const CanvasWrapper: FC<{
+    children: ReactNode;
+    active: boolean;
+    fps: number;
+}> = ({ children, active, fps }) => {
+    const dpr = useResponsiveDpr();
+    return (
+        <Canvas
+            dpr={dpr}
+            frameloop="demand"
+            className="w-full h-full relative"
+        >
+            <RenderLoop active={active} fps={fps} />
+            {children}
+        </Canvas>
+    );
+};
 
 const hexToNormalizedRGB = (hex: string): [number, number, number] => {
     const clean = hex.replace("#", "");
@@ -191,6 +245,8 @@ interface BeamsProps {
     noiseIntensity?: number;
     scale?: number;
     rotation?: number;
+    active?: boolean;
+    fps?: number;
 }
 
 const Beams: FC<BeamsProps> = ({
@@ -204,6 +260,8 @@ const Beams: FC<BeamsProps> = ({
     noiseIntensity = 1.75,
     scale = 0.2,
     rotation = 0,
+    active = true,
+    fps = 30,
 }) => {
     const meshRef = useRef<
         THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>
@@ -281,7 +339,7 @@ const Beams: FC<BeamsProps> = ({
     );
 
     return (
-        <CanvasWrapper>
+        <CanvasWrapper active={active} fps={fps}>
             <group rotation={[0, 0, degToRad(rotation)]}>
                 <PlaneNoise
                     ref={meshRef}
@@ -289,6 +347,7 @@ const Beams: FC<BeamsProps> = ({
                     count={beamNumber}
                     width={beamWidth}
                     height={beamHeight}
+                    active={active}
                 />
                 <DirLight color={resolvedAccentColor} position={[0, 3, 10]} />
             </group>
@@ -363,17 +422,23 @@ const MergedPlanes = forwardRef<
         width: number;
         count: number;
         height: number;
+        active: boolean;
     }
->(({ material, width, count, height }, ref) => {
+>(({ material, width, count, height, active }, ref) => {
     const mesh = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(
         null!,
     );
     useImperativeHandle(ref, () => mesh.current);
+    const activeRef = useRef(active);
     const geometry = useMemo(
         () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
         [count, width, height],
     );
+    useEffect(() => {
+        activeRef.current = active;
+    }, [active]);
     useFrame((_, delta) => {
+        if (!activeRef.current) return;
         mesh.current.material.uniforms.time.value += 0.1 * delta;
     });
     return <mesh ref={mesh} geometry={geometry} material={material} />;
@@ -387,6 +452,7 @@ const PlaneNoise = forwardRef<
         width: number;
         count: number;
         height: number;
+        active: boolean;
     }
 >((props, ref) => (
     <MergedPlanes
@@ -395,6 +461,7 @@ const PlaneNoise = forwardRef<
         width={props.width}
         count={props.count}
         height={props.height}
+        active={props.active}
     />
 ));
 PlaneNoise.displayName = "PlaneNoise";
