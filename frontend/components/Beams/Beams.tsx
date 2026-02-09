@@ -12,8 +12,6 @@ import {
 import * as THREE from "three";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
-import { degToRad } from "three/src/math/MathUtils.js";
 
 type UniformValue = THREE.IUniform<unknown> | unknown;
 
@@ -142,6 +140,7 @@ const CanvasWrapper: FC<{
             dpr={dpr}
             frameloop="demand"
             className="w-full h-full relative"
+            camera={{ position: [0, 0, 20], fov: 30 }}
         >
             <RenderLoop active={active} fps={fps} />
             {children}
@@ -340,7 +339,7 @@ const Beams: FC<BeamsProps> = ({
 
     return (
         <CanvasWrapper active={active} fps={fps}>
-            <group rotation={[0, 0, degToRad(rotation)]}>
+            <group rotation={[0, 0, THREE.MathUtils.degToRad(rotation)]}>
                 <PlaneNoise
                     ref={meshRef}
                     material={beamMaterial}
@@ -353,7 +352,6 @@ const Beams: FC<BeamsProps> = ({
             </group>
             <ambientLight intensity={1} />
             <color attach="background" args={[backgroundColor]} />
-            <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={30} />
         </CanvasWrapper>
     );
 };

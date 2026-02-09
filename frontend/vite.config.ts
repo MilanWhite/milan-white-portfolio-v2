@@ -6,6 +6,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
     plugins: [react(), tailwindcss()],
     resolve: {
-        dedupe: ["react", "react-dom"],
+        dedupe: [
+            "react",
+            "react-dom",
+            "@react-three/fiber",
+            "@react-three/drei",
+            "three",
+        ],
     },
 })
