@@ -23,9 +23,10 @@ type RevealOptions = {
     threshold?: number;
 };
 
-const useScrollReveal = (
-    { rootMargin = "0px 0px -12% 0px", threshold = 0.2 }: RevealOptions = {},
-) => {
+const useScrollReveal = ({
+    rootMargin = "0px 0px -12% 0px",
+    threshold = 0.2,
+}: RevealOptions = {}) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -158,7 +159,7 @@ const ExperienceCard = ({ item, index }: ExperienceCardProps) => {
                 <div
                     ref={ref}
                     style={{ transitionDelay: delay }}
-                    className={`rounded-2xl border border-white/10 bg-[linear-gradient(140deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-[clamp(1rem,2vw,1.5rem)] shadow-[0_16px_40px_rgba(0,0,0,0.25)] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:translate-x-0 motion-reduce:scale-100 motion-reduce:blur-0 ${
+                    className={`rounded-2xl border border-white/10 bg-[linear-gradient(140deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-[clamp(1rem,2vw,1.5rem)] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:translate-x-0 motion-reduce:scale-100 motion-reduce:blur-0 ${
                         isVisible
                             ? "opacity-100 translate-y-0 md:translate-x-0 scale-100 blur-0"
                             : `opacity-0 translate-y-6 ${hiddenOffset} scale-[0.98] blur-[2px]`
