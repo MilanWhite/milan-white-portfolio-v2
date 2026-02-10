@@ -1,12 +1,12 @@
 export const URLS = {
     homePage: "/",
 
-    aboutMe: "#",
-    education: "#",
-    experience: "#",
-    projects: "#",
-    contact: "#",
-    resume: "#",
+    home: "#home",
+    aboutMe: "#about-me",
+    education: "#education",
+    experience: "#experience",
+    projects: "#projects",
+    contact: "#contact",
 
     github: "https://github.com/MilanWhite",
     linkedin: "https://www.linkedin.com/in/milan-white",
