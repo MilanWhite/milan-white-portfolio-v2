@@ -4,6 +4,7 @@ import Education from "../../components/Education";
 import Experience from "../../components/Experience";
 import GradualBlur from "../../components/GradualBlur/GradualBlur";
 import Projects from "../../components/Projects";
+import Footer from "../../components/Footer";
 
 export default function HomePage() {
     return (
@@ -13,6 +14,10 @@ export default function HomePage() {
             <Education />
             <Experience />
             <Projects />
+            <Footer />
+
+            {/* Spacer */}
+            <div className="h-5 sm:h-0"></div>
 
             <GradualBlur
                 target="page"
