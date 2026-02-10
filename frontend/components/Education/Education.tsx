@@ -2,10 +2,12 @@ import { URLS } from "../../src/config/navigation";
 import { COLORS } from "../../src/config/theme";
 import Badge from "../Badge";
 import GrainBackground from "../GrainBackground";
+import educationImage from "../../src/assets/education.webp";
 
 export default function Education() {
     return (
         <section
+            id="education"
             style={{
                 backgroundColor: COLORS.secondaryBlue,
             }}
@@ -82,7 +84,7 @@ export default function Education() {
                     </div>
                     <div className="relative order-1 mx-auto block w-[clamp(240px,80vw,400px)] shrink-0 md:order-2 md:mx-0 md:w-[400px]">
                         <img
-                            src="../../src/assets/education.webp"
+                            src={educationImage}
                             alt="University of Toronto campus"
                             loading="lazy"
                             decoding="async"

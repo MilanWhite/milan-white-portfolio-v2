@@ -1,13 +1,17 @@
 import Badge from "../Badge";
+import aboutMeImage from "../../src/assets/about_me.png";
 
 export default function AboutMe() {
     return (
-        <section className="relative flex w-full justify-center px-4 sm:px-6">
+        <section
+            id="about-me"
+            className="relative flex w-full justify-center px-4 sm:px-6"
+        >
             <div className="relative w-full max-w-[1200px] py-[clamp(2.5rem,6vw,5rem)]">
                 <div className="relative flex flex-col gap-[clamp(1.75rem,4vw,3rem)] p-[clamp(1.25rem,3vw,2.5rem)] md:flex-row md:items-center">
                     <div className="relative mx-auto w-[clamp(240px,80vw,400px)] shrink-0 md:mx-0 md:w-[400px]">
                         <img
-                            src="../../src/assets/about_me.png"
+                            src={aboutMeImage}
                             alt="Portrait of Milan White"
                             loading="lazy"
                             decoding="async"

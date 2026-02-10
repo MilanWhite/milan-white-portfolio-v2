@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Badge from "../Badge";
 import { COLORS } from "../../src/config/theme";
+import cibcIcon from "../../src/assets/cibc_icon.webp";
+import ostServiceIcon from "../../src/assets/ost_service_icon.webp";
+import wfcIcon from "../../src/assets/WFC_icon.webp";
 
 type ExperienceDate = {
     year: number;
@@ -91,7 +94,7 @@ const experiences: ExperienceItem[] = [
         },
         end: "Present",
         logoText: "CIBC",
-        logoSrc: "../../src/assets/cibc_icon.webp",
+        logoSrc: cibcIcon,
         logoAlt: "CIBC logo",
         description:
             "Working on implementing BioCatch SDK into the mobile application, supporting behavior-based security and fraud detection.",
@@ -100,7 +103,7 @@ const experiences: ExperienceItem[] = [
         title: "OST Service Ltd. - Full Stack Software Developer",
         range: "Jun 2025 - Sep 2025 (4 mos)",
         logoText: "OST",
-        logoSrc: "../../src/assets/ost_service_icon.webp",
+        logoSrc: ostServiceIcon,
         logoAlt: "OST Service logo",
         description:
             "Built and shipped full-stack web features end-to-end, from React UI to Python APIs and database-backed services.",
@@ -109,7 +112,7 @@ const experiences: ExperienceItem[] = [
         title: "White Finances & Consulting Inc. - Software Developer & IT Administrator",
         range: "Nov 2024 - Sep 2025",
         logoText: "WFC",
-        logoSrc: "../../src/assets/WFC_icon.webp",
+        logoSrc: wfcIcon,
         logoAlt: "White Finances & Consulting logo",
         description:
             "Developed internal software and managed IT systems, supporting secure, reliable day-to-day operations.",

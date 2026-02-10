@@ -1,26 +1,29 @@
 import { URLS } from "../../src/config/navigation";
 import { leftLinks, rightLinks } from "../NavBar/navLinks";
+import githubIcon from "../../src/assets/github_white.svg";
+import linkedinIcon from "../../src/assets/linkedin_white.svg";
+import emailIcon from "../../src/assets/email_white.png";
 
 const footerLinks = [...leftLinks, ...rightLinks];
 const socialLinks = [
     {
         name: "Github",
         href: URLS.github,
-        icon: "../../src/assets/github_white.svg",
+        icon: githubIcon,
         className:
             "inline-flex h-[clamp(2rem,6vw,2.5rem)] w-[clamp(2rem,6vw,2.5rem)] items-center justify-center rounded-full text-white/80 transition-colors hover:text-white",
     },
     {
         name: "LinkedIn",
         href: URLS.linkedin,
-        icon: "../../src/assets/linkedin_white.svg",
+        icon: linkedinIcon,
         className:
             "inline-flex h-[clamp(2rem,6vw,2.5rem)] w-[clamp(2rem,6vw,2.5rem)] items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:text-white",
     },
     {
         name: "Email",
         href: URLS.email,
-        icon: "../../src/assets/email_white.png",
+        icon: emailIcon,
         className:
             "inline-flex h-[clamp(2rem,6vw,2.5rem)] w-[clamp(2rem,6vw,2.5rem)] items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:text-white",
     },
