@@ -6,7 +6,7 @@ type LogoBadgeProps = {
 };
 
 export default function LogoBadge({
-    href = "#",
+    href = "/#home",
     text = "MILAN WHITE ",
 }: LogoBadgeProps) {
     return (
