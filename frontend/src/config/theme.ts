@@ -3,6 +3,9 @@ export const COLORS = {
     // secondaryBlue: "#092a58",
     secondaryBlue: "#000f25",
 
+    tertiaryBlue: "#000000",
+
+
 
     beamsBlue: "#85b8ff",
 
