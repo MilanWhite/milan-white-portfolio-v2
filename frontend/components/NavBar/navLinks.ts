@@ -6,15 +6,15 @@ export type NavLink = {
 };
 
 export const leftLinks: NavLink[] = [
+    { label: "Home", href: URLS.home },
     { label: "About Me", href: URLS.aboutMe },
     { label: "Education", href: URLS.education },
-    { label: "Experience", href: URLS.experience },
 ];
 
 export const rightLinks: NavLink[] = [
+    { label: "Experience", href: URLS.experience },
     { label: "Projects", href: URLS.projects },
     { label: "Contact", href: URLS.contact },
-    { label: "Resume", href: URLS.resume },
 ];
 
 export const mobileLinks = [...leftLinks, ...rightLinks];
