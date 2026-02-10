@@ -54,7 +54,7 @@ export default function AboutMe() {
                             <br />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
                             driven to create software that operates with clarity
-                            and precision—quietly improving reliability and
+                            and precision - quietly improving reliability and
                             productivity.
                         </p>
                     </div>
