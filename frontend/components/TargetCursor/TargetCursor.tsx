@@ -118,6 +118,31 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
         createSpinTimeline();
 
+        const updateTargetCornerPositions = (target: Element) => {
+            const rect = target.getBoundingClientRect();
+            const { borderWidth, cornerSize } = constants;
+            targetCornerPositionsRef.current = [
+                { x: rect.left - borderWidth, y: rect.top - borderWidth },
+                {
+                    x: rect.right + borderWidth - cornerSize,
+                    y: rect.top - borderWidth,
+                },
+                {
+                    x: rect.right + borderWidth - cornerSize,
+                    y: rect.bottom + borderWidth - cornerSize,
+                },
+                {
+                    x: rect.left - borderWidth,
+                    y: rect.bottom + borderWidth - cornerSize,
+                },
+            ];
+        };
+
+        const refreshActiveTargetPositions = () => {
+            if (!activeTarget) return;
+            updateTargetCornerPositions(activeTarget);
+        };
+
         const tickerFn = () => {
             if (
                 !targetCornerPositionsRef.current ||
@@ -190,6 +215,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
                 setScopeActive(Boolean(isWithinScope));
             }
             if (!activeTarget || !cursorRef.current) return;
+            refreshActiveTargetPositions();
             const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
             const isStillOverTarget =
                 elementUnderMouse &&
@@ -200,6 +226,11 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             }
         };
         window.addEventListener("scroll", scrollHandler, { passive: true });
+
+        const resizeHandler = () => {
+            refreshActiveTargetPositions();
+        };
+        window.addEventListener("resize", resizeHandler);
 
         const mouseDownHandler = () => {
             if (!dotRef.current) return;
@@ -245,26 +276,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             spinTl.current?.pause();
             gsap.set(cursorRef.current, { rotation: 0 });
 
-            const rect = target.getBoundingClientRect();
-            const { borderWidth, cornerSize } = constants;
             const cursorX = gsap.getProperty(cursorRef.current, "x") as number;
             const cursorY = gsap.getProperty(cursorRef.current, "y") as number;
 
-            targetCornerPositionsRef.current = [
-                { x: rect.left - borderWidth, y: rect.top - borderWidth },
-                {
-                    x: rect.right + borderWidth - cornerSize,
-                    y: rect.top - borderWidth,
-                },
-                {
-                    x: rect.right + borderWidth - cornerSize,
-                    y: rect.bottom + borderWidth - cornerSize,
-                },
-                {
-                    x: rect.left - borderWidth,
-                    y: rect.bottom + borderWidth - cornerSize,
-                },
-            ];
+            updateTargetCornerPositions(target);
 
             gsap.ticker.add(tickerFnRef.current!);
 
@@ -357,6 +372,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             window.removeEventListener("mousemove", pointerMoveHandler);
             window.removeEventListener("mouseover", enterHandler as EventListener);
             window.removeEventListener("scroll", scrollHandler);
+            window.removeEventListener("resize", resizeHandler);
             window.removeEventListener("mousedown", mouseDownHandler);
             window.removeEventListener("mouseup", mouseUpHandler);
             if (activeTarget) {
