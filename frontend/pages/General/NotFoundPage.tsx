@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Badge from "../../components/Badge";
 import GrainBackground from "../../components/GrainBackground";
 import { URLS } from "../../src/config/navigation";
 import { COLORS } from "../../src/config/theme";
