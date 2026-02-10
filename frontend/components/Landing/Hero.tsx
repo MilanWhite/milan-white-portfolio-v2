@@ -1,9 +1,9 @@
 import { URLS } from "../../src/config/navigation";
 import Button from "../Button";
-import heroImage from "../../src/assets/hero_image_cropped.jpg";
+import heroImage from "../../src/assets/hero_image_cropped.webp";
 import githubIcon from "../../src/assets/github_white.svg";
 import linkedinIcon from "../../src/assets/linkedin_white.svg";
-import emailIcon from "../../src/assets/email_white.png";
+import emailIcon from "../../src/assets/email_white.webp";
 
 export default function Hero() {
     return (

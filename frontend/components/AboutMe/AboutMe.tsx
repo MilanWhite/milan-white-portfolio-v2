@@ -1,5 +1,5 @@
 import Badge from "../Badge";
-import aboutMeImage from "../../src/assets/about_me.png";
+import aboutMeImage from "../../src/assets/about_me.webp";
 
 export default function AboutMe() {
     return (
@@ -23,14 +23,8 @@ export default function AboutMe() {
                             About Me
                         </h2>
                         <div className="flex flex-wrap gap-2">
-                            <Badge
-                                text="CS & Stats"
-                                className="self-start"
-                            />
-                            <Badge
-                                text="UofT"
-                                className="self-start"
-                            />
+                            <Badge text="CS & Stats" className="self-start" />
+                            <Badge text="UofT" className="self-start" />
                             <Badge
                                 text="President of TechFounders"
                                 className="self-start"

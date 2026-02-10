@@ -1,4 +1,9 @@
 import Badge from "../Badge";
+import meshStat from "../../src/assets/meshstat.webp";
+import skyLock from "../../src/assets/skylock.webp";
+import hireMatch from "../../src/assets/hirematch.webp";
+import thePasskeyToolkit from "../../src/assets/the_passkey_toolkit.webp";
+import chess from "../../src/assets/ai_cv_for_chess.webp";
 
 type Project = {
     id: string;
@@ -28,7 +33,7 @@ const PROJECTS: Project[] = [
         description:
             "Built during KingHacks, MeshStat is a privacy-first smart-city sensing platform proven viable with four battery nodes streaming temperature and decibel metrics to a SQL database, powering a live React heatmap and dashboards with replay, per-sensor trends, hotspot/exceedance detection, and grounded AI briefs for decision-ready city planning.",
         link: "https://github.com/MilanWhite/MeshStat",
-        image: "../../src/assets/hero_image_cropped.jpg",
+        image: meshStat,
         imageAlt: "Product interface preview",
         accent: "rgba(255, 255, 255, 0.16)",
         accentSoft: "rgba(255, 255, 255, 0.07)",
@@ -48,7 +53,7 @@ const PROJECTS: Project[] = [
         description:
             "Made during BramHacks, Skylock is a Raspberry Pi touchscreen satellite-tracking device that predicts the nearest satellite from prior snapshots, guides real-time triangulation to help you align to the target, and then publishes a live “ping” and location status to a FastAPI backend, powering a React + Tailwind web map for remote monitoring and tracking in emergency situations.",
         link: "https://github.com/MilanWhite/skylock-v2",
-        image: "../../src/assets/cibc.png",
+        image: skyLock,
         imageAlt: "Mobile security experience preview",
         accent: "rgba(255, 255, 255, 0.16)",
         accentSoft: "rgba(255, 255, 255, 0.07)",
@@ -68,7 +73,7 @@ const PROJECTS: Project[] = [
         description:
             "HireMatch is a Java, Clean-Architecture HR matching app where employers and candidates create profiles and get recommendations via Pinecone vector-embedding similarity search. Mutual likes create matches, and matches are shown for fast follow-ups.",
         link: "https://github.com/TheAmazingDokir/hirematch",
-        image: "../../src/assets/education.webp",
+        image: hireMatch,
         imageAlt: "Analytics dashboard preview",
         accent: "rgba(255, 255, 255, 0.16)",
         accentSoft: "rgba(255, 255, 255, 0.07)",
@@ -82,7 +87,7 @@ const PROJECTS: Project[] = [
         description:
             "A modular, framework-agnostic TypeScript WebAuthn (passkey) SDK that simplifies registration/auth flows, cutting ~200+ lines per integration and supporting challenge/verification with clear documentation.",
         link: "https://github.com/MilanWhite/the-passkey-toolkit",
-        image: "../../src/assets/about_me.png",
+        image: thePasskeyToolkit,
         imageAlt: "Community platform preview",
         accent: "rgba(255, 255, 255, 0.16)",
         accentSoft: "rgba(255, 255, 255, 0.07)",
@@ -95,7 +100,7 @@ const PROJECTS: Project[] = [
         description:
             "An end-to-end computer-vision pipeline that detects and segments a chessboard from images using OpenCV, classifies each piece with a TensorFlow CNN, and reconstructs the full position as FEN - enabling reliable analysis and engine integration for online chess.",
         link: "https://github.com/MilanWhite/chess-piece-recognition-tensorflow",
-        image: "../../src/assets/hero_image_cropped.jpg",
+        image: chess,
         imageAlt: "Interface system preview",
         accent: "rgba(255, 255, 255, 0.16)",
         accentSoft: "rgba(255, 255, 255, 0.07)",

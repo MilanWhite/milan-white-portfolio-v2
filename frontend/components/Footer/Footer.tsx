@@ -2,7 +2,7 @@ import { URLS } from "../../src/config/navigation";
 import { leftLinks, rightLinks } from "../NavBar/navLinks";
 import githubIcon from "../../src/assets/github_white.svg";
 import linkedinIcon from "../../src/assets/linkedin_white.svg";
-import emailIcon from "../../src/assets/email_white.png";
+import emailIcon from "../../src/assets/email_white.webp";
 
 const footerLinks = [...leftLinks, ...rightLinks];
 const socialLinks = [
