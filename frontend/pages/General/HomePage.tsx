@@ -4,6 +4,7 @@ import Education from "../../components/Education";
 import Experience from "../../components/Experience";
 import GradualBlur from "../../components/GradualBlur/GradualBlur";
 import Projects from "../../components/Projects";
+import ContactForm from "../../components/ContactForm";
 import Footer from "../../components/Footer";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
             <Education />
             <Experience />
             <Projects />
+            <ContactForm />
             <Footer />
 
             {/* Spacer */}
