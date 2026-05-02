@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Badge from "../Badge";
 import { COLORS } from "../../src/config/theme";
+import xplodeIcon from "../../src/assets/xplode_icon.webp";
 import cibcIcon from "../../src/assets/cibc_icon.webp";
 import ostServiceIcon from "../../src/assets/ost_service_icon.webp";
 import wfcIcon from "../../src/assets/WFC_icon.webp";
@@ -17,8 +18,6 @@ type ExperienceItem = {
     logoSrc?: string;
     logoAlt?: string;
     description: string;
-    start?: ExperienceDate;
-    end?: "Present";
 };
 
 type RevealOptions = {
@@ -67,41 +66,103 @@ const getMonthsBetweenInclusive = (
     return Math.max(0, months);
 };
 
-const formatMonths = (months: number) =>
-    months === 1 ? "1 mo" : `${months} mos`;
+const formatMonths = (months: number) => {
+    if (months < 12) {
+        return months === 1 ? "1 mo" : `${months} mos`;
+    }
+
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
+    const yearLabel = years === 1 ? "1 yr" : `${years} yrs`;
+
+    if (remainingMonths === 0) {
+        return yearLabel;
+    }
+
+    const monthLabel =
+        remainingMonths === 1 ? "1 mo" : `${remainingMonths} mos`;
+
+    return `${yearLabel} ${monthLabel}`;
+};
 
 const getRangeLabel = (item: ExperienceItem) => {
-    if (item.end !== "Present" || !item.start) {
+    const dateRange = item.range.match(
+        /^([A-Za-z]+),?\s+(\d{4})\s+-\s+([A-Za-z]+|Present),?\s*(\d{4})?$/,
+    );
+
+    if (!dateRange) {
+        return item.range;
+    }
+
+    const [, startMonthName, startYear, endMonthName, endYear] = dateRange;
+    const monthNames = [
+        "jan",
+        "feb",
+        "mar",
+        "apr",
+        "may",
+        "jun",
+        "jul",
+        "aug",
+        "sep",
+        "oct",
+        "nov",
+        "dec",
+    ];
+    const startMonth = monthNames.indexOf(
+        startMonthName.toLowerCase().slice(0, 3),
+    );
+
+    if (startMonth === -1) {
         return item.range;
     }
 
     const now = new Date();
-    const months = getMonthsBetweenInclusive(item.start, {
-        year: now.getFullYear(),
-        month: now.getMonth(),
-    });
+    const isPresent = endMonthName.toLowerCase() === "present";
+    const endMonth = isPresent
+        ? now.getMonth()
+        : monthNames.indexOf(endMonthName.toLowerCase().slice(0, 3));
+
+    if (endMonth === -1 || (!isPresent && !endYear)) {
+        return item.range;
+    }
+
+    const months = getMonthsBetweenInclusive(
+        {
+            year: Number(startYear),
+            month: startMonth,
+        },
+        {
+            year: isPresent ? now.getFullYear() : Number(endYear),
+            month: endMonth,
+        },
+    );
 
     return `${item.range} (${formatMonths(months)})`;
 };
 
 const experiences: ExperienceItem[] = [
     {
-        title: "CIBC - Mobile Developer",
-        range: "Jan, 2026 - Present",
-        start: {
-            year: 2026,
-            month: 0,
-        },
-        end: "Present",
+        title: "Xplode w/ AI - ML Backend Junior Engineer",
+        range: "May, 2026 - Present",
+        logoText: "Xplode w/ AI",
+        logoSrc: xplodeIcon,
+        logoAlt: "Xplode w/ AI logo",
+        description:
+            "Working on Danko, a real-time translation application. Focused on the creation and training of ML voice/text models.",
+    },
+    {
+        title: "CIBC - Android Mobile Developer",
+        range: "Jan, 2026 - Apr 2026",
         logoText: "CIBC",
         logoSrc: cibcIcon,
         logoAlt: "CIBC logo",
         description:
-            "Working on implementing BioCatch SDK into the mobile application, supporting behavior-based security and fraud detection.",
+            "Developed production Android banking features across security hardening, fraud-prevention integration, testing, and VP-facing business innovation.",
     },
     {
         title: "OST Service Ltd. - Full Stack Software Developer",
-        range: "Jun 2025 - Sep 2025 (4 mos)",
+        range: "Jun 2025 - Sep 2025",
         logoText: "OST",
         logoSrc: ostServiceIcon,
         logoAlt: "OST Service logo",

@@ -50,11 +50,11 @@ export default function AboutMe() {
                             experience in React, TypeScript, Flask, and
                             PostgreSQL, I build production-ready applications
                             that automate workflows and handle real business
-                            data, not just academic projects.
+                            data.
                             <br />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
                             driven to create software that operates with clarity
-                            and precision - quietly improving reliability and
+                            and precision - significantly improving reliability and
                             productivity.
                         </p>
                     </div>
