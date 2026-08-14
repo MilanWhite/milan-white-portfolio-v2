@@ -9,12 +9,12 @@ html {
 
 :root {
   --landing-vh: 100vh;
-  --landing-hero-offset: 10vh;
+  --landing-hero-offset: calc(10vh - clamp(1rem, 3vh, 2rem));
 }
 
 @supports (height: 100svh) {
   :root {
     --landing-vh: 100svh;
-    --landing-hero-offset: 10svh;
+    --landing-hero-offset: calc(10svh - clamp(1rem, 3svh, 2rem));
   }
 }

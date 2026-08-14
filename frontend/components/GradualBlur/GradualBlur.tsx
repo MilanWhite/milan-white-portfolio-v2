@@ -162,6 +162,47 @@ const useIntersectionObserver = (ref: React.RefObject<HTMLDivElement>, shouldObs
   return isVisible;
 };
 
+const getVisualViewportBottomInset = () => {
+  if (typeof window === 'undefined' || !window.visualViewport) return 0;
+
+  const viewport = window.visualViewport;
+  return Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
+};
+
+const useVisualViewportBottomInset = (enabled: boolean) => {
+  const [bottomInset, setBottomInset] = useState(0);
+
+  useEffect(() => {
+    if (!enabled || typeof window === 'undefined' || !window.visualViewport) return;
+
+    let frameId: number | null = null;
+    const update = () => {
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        frameId = null;
+        setBottomInset(getVisualViewportBottomInset());
+      });
+    };
+
+    const viewport = window.visualViewport;
+    update();
+    viewport.addEventListener('resize', update);
+    viewport.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    window.addEventListener('orientationchange', update);
+
+    return () => {
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      viewport.removeEventListener('resize', update);
+      viewport.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      window.removeEventListener('orientationchange', update);
+    };
+  }, [enabled]);
+
+  return bottomInset;
+};
+
 const GradualBlur: React.FC<GradualBlurProps> = props => {
   const containerRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
   const [isHovered, setIsHovered] = useState(false);
@@ -175,6 +216,9 @@ const GradualBlur: React.FC<GradualBlurProps> = props => {
   const responsiveWidth = useResponsiveDimension(config.responsive, config, 'width');
 
   const isVisible = useIntersectionObserver(containerRef, config.animated === 'scroll');
+  const visualViewportBottomInset = useVisualViewportBottomInset(
+    config.target === 'page' && config.position === 'bottom'
+  );
 
   const blurDivs = useMemo(() => {
     const divs: React.ReactNode[] = [];
@@ -243,6 +287,9 @@ const GradualBlur: React.FC<GradualBlurProps> = props => {
       baseStyle[config.position] = 0;
       baseStyle.left = 0;
       baseStyle.right = 0;
+      if (isPageTarget && config.position === 'bottom') {
+        baseStyle.bottom = `${visualViewportBottomInset}px`;
+      }
     } else if (isHorizontal) {
       baseStyle.width = responsiveWidth || responsiveHeight;
       baseStyle.height = '100%';
@@ -252,7 +299,7 @@ const GradualBlur: React.FC<GradualBlurProps> = props => {
     }
 
     return baseStyle;
-  }, [config, responsiveHeight, responsiveWidth, isVisible]);
+  }, [config, responsiveHeight, responsiveWidth, isVisible, visualViewportBottomInset]);
 
   const { hoverIntensity, animated, onAnimationComplete, duration } = config as any;
   useEffect(() => {
