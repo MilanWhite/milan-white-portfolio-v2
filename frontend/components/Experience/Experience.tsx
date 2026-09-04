@@ -162,7 +162,7 @@ const experiences: ExperienceItem[] = [
     },
     {
         title: "OST Service Ltd. - Software Developer",
-        range: "Jun 2025 - Sep 2025",
+        range: "Jun 2025 - Jan 2026",
         logoText: "OST",
         logoSrc: ostServiceIcon,
         logoAlt: "OST Service logo",
@@ -171,7 +171,7 @@ const experiences: ExperienceItem[] = [
     },
     {
         title: "White Finances & Consulting Inc. - Software Developer & IT Administrator",
-        range: "Nov 2024 - Sep 2025",
+        range: "Nov 2024 - Jan 2026",
         logoText: "WFC",
         logoSrc: wfcIcon,
         logoAlt: "White Finances & Consulting logo",
