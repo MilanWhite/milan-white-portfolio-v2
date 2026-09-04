@@ -34,9 +34,9 @@ export default function Projects() {
                             Pick a project, any project.
                         </p>
                     </div>
-                    <ol className="relative flex flex-col gap-[clamp(1.5rem,3vw,2.5rem)]">
+                    <div className="relative flex flex-col gap-[clamp(1.5rem,3vw,2.5rem)]">
                         <ProjectsBentoGrid />
-                    </ol>
+                    </div>
                 </div>
             </div>
         </section>
