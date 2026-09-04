@@ -158,7 +158,7 @@ const experiences: ExperienceItem[] = [
         logoSrc: cibcIcon,
         logoAlt: "CIBC logo",
         description:
-            "Worked on application security in CIBC's Android banking stack, implementing tapjacking protections across sensitive WebView payment and authentication flows and integrating behavioral-biometrics fraud-detection functionality in Kotlin.",
+            "Worked on application security in CIBC's Android banking stack, implementing tapjacking protections across sensitive WebView payment and authentication flows and integrated behavioral-biometrics fraud-detection functionality in Kotlin.",
     },
     {
         title: "OST Service Ltd. - Software Developer",
