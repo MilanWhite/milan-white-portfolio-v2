@@ -23,40 +23,52 @@ export default function AboutMe() {
                             About Me
                         </h2>
                         <div className="flex flex-wrap gap-2">
-                            <Badge text="CS & Stats" className="self-start" />
-                            <Badge text="UofT" className="self-start" />
-                            <Badge
-                                text="President of TechFounders"
-                                className="self-start"
-                            />
+                            {[
+                                "Computer Science",
+                                "Software Engineering",
+                                "Statistics",
+                                "Backend",
+                                "ML",
+                                "Systems",
+                                "Security",
+                            ].map((tag) => (
+                                <Badge
+                                    key={tag}
+                                    text={tag}
+                                    className="self-start"
+                                />
+                            ))}
                         </div>
 
-                        <p className="max-w-[620px] text-[clamp(11pt,2.2vw,14pt)] leading-relaxed text-white/80">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
-                            a Computer Science Specialist and Statistics Major
-                            at the{" "}
-                            <a
-                                href="https://www.utoronto.ca"
-                                className="underline"
-                                target="_blank"
-                            >
-                                University of Toronto
-                            </a>
-                            , focused on developing full-stack systems that
-                            simplify complex operations into efficient, scalable
-                            solutions.
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With
-                            experience in React, TypeScript, Flask, and
-                            PostgreSQL, I build production-ready applications
-                            that automate workflows and handle real business
-                            data.
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am
-                            driven to create software that operates with clarity
-                            and precision - significantly improving reliability and
-                            productivity.
-                        </p>
+                        <div className="flex max-w-[620px] flex-col gap-3 text-[clamp(11pt,2.2vw,14pt)] leading-relaxed text-white/80">
+                            <p>
+                                I&apos;m a Computer Science student at the{" "}
+                                <a
+                                    href="https://www.utoronto.ca"
+                                    className="underline"
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                >
+                                    University of Toronto
+                                </a>{" "}
+                                studying Software Engineering and Statistics.
+                            </p>
+                            <p>
+                                I&apos;ve worked on low-latency speech ML and
+                                backend systems, where I improved multilingual
+                                language-routing accuracy by 22% and built
+                                training and evaluation infrastructure for
+                                roughly 1,600 hours of speech. At CIBC, I worked
+                                on Android application security, including
+                                tapjacking remediation and fraud-detection SDK
+                                integration.
+                            </p>
+                            <p>
+                                Outside of internships, I build projects across
+                                backend systems, Linux/networking, mobile,
+                                security, and ML.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

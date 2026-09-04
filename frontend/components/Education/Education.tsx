@@ -22,8 +22,11 @@ export default function Education() {
                         </h2>
                         <div className="flex flex-col gap-2">
                             <h3 className="text-[clamp(13pt,3.2vw,20pt)] font-semibold text-white/90">
-                                Specialist in Computer Science & Statistics
-                                Major
+                                Honours BSc, Computer Science
+                                <br />
+                                Software Engineering Stream, Co-op
+                                <br />
+                                Statistics Major
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 <Badge
@@ -35,27 +38,26 @@ export default function Education() {
                         <ul className="mt-1 flex max-w-[620px] flex-col gap-2 text-[clamp(11pt,2.2vw,14pt)] leading-relaxed text-white/70">
                             <li className="flex gap-3">
                                 <span className="mt-[0.55rem] h-2.5 w-2.5 shrink-0 rounded-full border border-white/30" />
+                                <span>3.85/4.00 GPA · Dean&apos;s List</span>
+                            </li>
+                            <li className="flex gap-3">
+                                <span className="mt-[0.55rem] h-2.5 w-2.5 shrink-0 rounded-full border border-white/30" />
+                                <span>Expected June 2028</span>
+                            </li>
+                            <li className="flex gap-3">
+                                <span className="mt-[0.55rem] h-2.5 w-2.5 shrink-0 rounded-full border border-white/30" />
                                 <span>
                                     <span className="font-semibold text-white/90">
                                         2024
                                     </span>{" "}
-                                    University of Toronto Scholar Scholarship
-                                    Recipient
+                                    University of Toronto Scholar
                                 </span>
                             </li>
                             <li className="flex gap-3">
                                 <span className="mt-[0.55rem] h-2.5 w-2.5 shrink-0 rounded-full border border-white/30" />
                                 <span>
-                                    Relevant coursework includes Artificial
-                                    Intelligence, Data Structures, Machine
-                                    Learning, and Human-Computer Interaction
-                                </span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="mt-[0.55rem] h-2.5 w-2.5 shrink-0 rounded-full border border-white/30" />
-                                <span>
-                                    Co-President of The Tech Founders Club
-                                    (Podcasts, Hackathons, and Events)
+                                    Co-President of Tech Founders (UTSC), leading
+                                    recruiting, and events.
                                 </span>
                             </li>
                         </ul>

@@ -143,31 +143,31 @@ const getRangeLabel = (item: ExperienceItem) => {
 
 const experiences: ExperienceItem[] = [
     {
-        title: "Xplode w/ AI - ML Backend Junior Engineer",
-        range: "May, 2026 - Present",
+        title: "Xplode - Junior ML Backend Engineer",
+        range: "May 2026 - Aug 2026",
         logoText: "Xplode w/ AI",
         logoSrc: xplodeIcon,
         logoAlt: "Xplode w/ AI logo",
         description:
-            "Working on Danko, a real-time translation application. Focused on the creation and training of ML voice/text models.",
+            "Improved a multilingual speech pipeline by increasing language-routing accuracy by 22%, building training and evaluation infrastructure for roughly 1,600 hours of speech, and developing low-latency streaming recovery under 100 ms.",
     },
     {
-        title: "CIBC - Android Mobile Developer",
-        range: "Jan, 2026 - Apr 2026",
+        title: "CIBC - Software Developer Co-op",
+        range: "Jan 2026 - Apr 2026",
         logoText: "CIBC",
         logoSrc: cibcIcon,
         logoAlt: "CIBC logo",
         description:
-            "Developed production Android banking features across security hardening, fraud-prevention integration, testing, and VP-facing business innovation.",
+            "Worked on application security in CIBC's Android banking stack, implementing tapjacking protections across sensitive WebView payment and authentication flows and integrating behavioral-biometrics fraud-detection functionality in Kotlin.",
     },
     {
-        title: "OST Service Ltd. - Full Stack Software Developer",
+        title: "OST Service Ltd. - Software Developer",
         range: "Jun 2025 - Sep 2025",
         logoText: "OST",
         logoSrc: ostServiceIcon,
         logoAlt: "OST Service logo",
         description:
-            "Built and shipped full-stack web features end-to-end, from React UI to Python APIs and database-backed services.",
+            "Built and shipped a production vehicle-auction logistics platform managing 200+ cars for 10+ enterprise buyers and supporting $2.5M+ in inventory. Built the Flask/PostgreSQL backend and AWS infrastructure for authentication, media storage, and operational workflows.",
     },
     {
         title: "White Finances & Consulting Inc. - Software Developer & IT Administrator",
@@ -176,7 +176,7 @@ const experiences: ExperienceItem[] = [
         logoSrc: wfcIcon,
         logoAlt: "White Finances & Consulting logo",
         description:
-            "Developed internal software and managed IT systems, supporting secure, reliable day-to-day operations.",
+            "Built an internal employee time-tracking and worklog application with location-based clock-in/out, administrator tools, timesheet exports, and automated cloud backups while also handling day-to-day IT support.",
     },
 ];
 
